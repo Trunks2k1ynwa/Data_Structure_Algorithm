@@ -1,0 +1,66 @@
+## Map là gì
+- Map trong JavaScript là một cấu trúc dữ liệu lưu trữ các cặp giá trị key-value (khóa-giá trị)
+- Các key trong Map luôn luôn unique
+## Khởi tạo Map
+```ts
+const map = new Map()
+const mapWithValues = new Map([
+  ['key1', 'value1'],
+  ['key2', 'value2']
+]);
+console.log(mapWithValues);
+// Output: Map(2) { 'key1' => 'value1', 'key2' => 'value2' }
+```
+## Set
+```ts
+map.set('name', 'John');
+map.set('age', 25);
+
+console.log(map);
+// Output: Map(2) { 'name' => 'John', 'age' => 25 }
+
+```
+## Get
+```ts
+console.log(map.get('name'));  // Output: John
+console.log(map.get('age'));   // Output: 25
+
+```
+## Has
+```ts
+console.log(map.has('name'));  // Output: true
+console.log(map.has('address')); // Output: false
+
+```
+## Delete
+```ts
+map.delete('age');
+console.log(map);
+// Output: Map(1) { 'name' => 'John' }
+
+```
+## size
+- Thuộc tính size trả về số cặp khóa-giá trị trong 
+```ts
+console.log(map.size);  // Output: 1
+
+```
+## Loop với Map
+- Bạn có thể lặp qua các cặp khóa-giá trị trong Map bằng for...of, forEach(), hoặc các phương thức như keys(), values(), và entries().
+```ts
+// Lặp qua cặp key-value
+for (const [key, value] of map) {
+  console.log(key, value);
+}
+
+// Lặp qua các key
+for (const key of map.keys()) {
+  console.log(key);
+}
+
+// Lặp qua các value
+for (const value of map.values()) {
+  console.log(value);
+}
+
+```
