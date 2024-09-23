@@ -62,5 +62,25 @@ for (const key of map.keys()) {
 for (const value of map.values()) {
   console.log(value);
 }
+// Lặp qua cặp [key, value] với callback.
+map.forEach((value, key) => {
+  console.log(key, value);
+});
+```
+
+## Object.fromEntries(iterable)
+- Là phương thức dùng để chuyển đổi một mảng các cặp giá trị [key, value] thành một đối tượng (Object)
+- iterable: Một đối tượng có thể lặp lại, chẳng hạn như Map hoặc một mảng chứa các cặp [key, value].
+```ts
+const map = new Map([
+  ['name', 'John'],
+  ['age', 30],
+  ['city', 'New York']
+]);
+
+const obj = Object.fromEntries(map);
+
+console.log(obj);
+// Output: { name: 'John', age: 30, city: 'New York' }
 
 ```
