@@ -1,17 +1,14 @@
-interface Array<T> {
-  groupBy(fn: (item: T) => string): Record<string, T[]>
-}
-
-Array.prototype.groupBy = function (fn) {
-  const formatList = this.map(item=>[fn(item),item])
-  const map = new Map(formatList);
-  if(this.length === map.size){
-      return Object.fromEntries(map);
-  } else {
-      for (let key of map.keys()) {
-          const listItem = this.filter(item => fn(item) === key)
-          map.set(key, listItem)
-      }
-      return Object.fromEntries(map)
+const getString = (strings: string) => {
+  const stringArray = strings.split('');
+  const uniqueArray = new Map(stringArray.map((item) => [item, 0]));
+  for (const x of uniqueArray.keys()) {
+    const length = stringArray.filter((item) => item === x).length;
+    uniqueArray.set(x, length);
   }
-}
+  return uniqueArray.keys().reduce((init, current) => {
+    return (init += uniqueArray.get(current));
+  }, '');
+};
+const string = 'abfaaacbfakei';
+const result = getString(string);
+console.log(result);
